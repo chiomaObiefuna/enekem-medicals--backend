@@ -40,6 +40,13 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes
+
+app.get('/api', (req, res) => {
+  res.json({
+    message:
+      'Welcome to the Enekem Medicals API. Your number one source for affordable healthcare.',
+  });
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/users', userRoutes);
